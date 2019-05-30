@@ -1,6 +1,6 @@
 {
-  "name": "my-extension",
-  "description": "A Vue.js web extension",
+  "name": "TDK Sözlük",
+  "description": "TDK Sözlük Tarayıcı Eklentisi",
   "version": null,
   "manifest_version": 2,
   "icons": {
@@ -8,7 +8,7 @@
     "128": "icons/icon_128.png"
   },
   "browser_action": {
-    "default_title": "my-extension",
+    "default_title": "TDK Sözlük Tarayıcı Eklentisi",
     "default_popup": "popup/popup.html"
   },
   "background": {
@@ -16,10 +16,7 @@
       "background.js"
     ]
   },
-  "options_ui": {
-    "page": "options/options.html",
-    "chrome_style": true
-  },"permissions": [
+  "permissions": [
     "contextMenus", 
     "tabs",
     "http://*/*",
@@ -29,7 +26,7 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content.js"],
+      "js": ["content.js"]
     }
   ]
 }

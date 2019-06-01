@@ -62,7 +62,10 @@
     <div class="footer">
       <ul>
         <li>
-          <i class="font-10">Katkıda bulunmak için <a class="font-10" href="https://github.com/oguzcandemircan/tdk-chrome-extension" target="_blank">Github</a> adresi </i>
+          <i class="font-10">Katkıda bulunmak için 
+            <a class="font-10" href="https://github.com/oguzcandemircan/tdk-chrome-extension" target="_blank">Github</a> adresi.
+            Geliştiri web sitesi <a class="font-10" target="_blank" href="https://oguzcandemircan.com">oguzcandemircan.com</a>
+          </i>
         </li>
         <li>
           <i><div class="font-10">Icons made by <a class="font-10" href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a class="font-10" href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a class="font-10" href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div></i>
@@ -111,7 +114,7 @@ export default {
     }
   },
   mounted() {
-    // this.search();
+    
   }
 }
 </script>

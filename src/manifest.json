@@ -11,6 +11,9 @@
     "default_title": "TDK Türkçe Sözlük Tarayıcı Eklentisi",
     "default_popup": "popup/popup.html"
   },
+  "permissions": [
+    ""*://*.sozluk.gov.tr/*""
+  ]
   "background": {
     "scripts": [
       "background.js"

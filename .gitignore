@@ -2,3 +2,5 @@
 /*.log
 /dist
 /dist-zip
+*.pem
+.DS_store

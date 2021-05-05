@@ -7,6 +7,7 @@
             id="search-input"
             v-model="word"
             required
+            ref="word"
             placeholder="Aramak istediğiniz kelimeyi girin."
             v-on:keyup.enter="search()"
             class="text-center"
@@ -14,7 +15,6 @@
           <b-button type="submit" variant="primary" @click="search()" id="search-btn">Ara</b-button>
         </b-input-group>
       </div>
-        <hr>
       <b-tabs content-class="mt-3 mb-3" v-if="isResultFound">
         <b-tab title="Anlamlar">
           <b-list-group>
@@ -62,13 +62,10 @@
     <div class="footer">
       <ul>
         <li>
-          <i class="font-10">Katkıda bulunmak için 
-            <a class="font-10" href="https://github.com/oguzcandemircan/tdk-chrome-extension" target="_blank">Github</a> adresi.
-            Geliştiri web sitesi <a class="font-10" target="_blank" href="https://oguzcandemircan.com">oguzcandemircan.com</a>
-          </i>
-        </li>
-        <li>
-          <i><div class="font-10">Icons made by <a class="font-10" href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a class="font-10" href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a class="font-10" href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div></i>
+          <span class="font-10">
+            TDK Türkçe Sözlük Tarayıcı Eklentisi &bull;
+           geliştirici web sitesi: <a class="font-10" target="_blank" href="https://oguzcandemircan.com">oguzcandemircan.com</a>
+          </span>
         </li>
       </ul>
     </div>
@@ -76,75 +73,75 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 
 export default {
-  data () {
+  data() {
     return {
-      word: '',
+      word: "",
       results: {
-        lisan: '',
+        lisan: "",
         atasozu: {},
         birlesikler: {},
         anlamlarListe: {},
       },
-      isResultFound: '',
-      isResultNotFound: '',
-    }
+      isResultFound: "",
+      isResultNotFound: "",
+    };
   },
   methods: {
     search() {
-      axios.get(`http://sozluk.gov.tr/gts?ara=${this.word}`).then(res =>  {
-        if(res.data.error) {
+      axios.get(`http://sozluk.gov.tr/gts?ara=${this.word}`).then((res) => {
+        if (res.data.error) {
           this.isResultNotFound = true;
           this.isResultFound = false;
           return false;
         }
-        this.results = res.data[0]
+        this.results = res.data[0];
         this.isResultFound = true;
         this.isResultNotFound = false;
-      })
+      });
     },
     parseBirlesikler(data) {
-      return this.isEmpty(data) ? {} : data.split(',');
+      return this.isEmpty(data) ? {} : data.split(",");
     },
     isEmpty(obj) {
       obj = obj == null ? {} : obj;
       return Object.keys(obj).length === 0;
-    }
+    },
   },
   mounted() {
-    
-  }
-}
+    this.$refs.word.focus();
+  },
+};
 </script>
 
 <style>
 .container {
   padding: 15px 25px !important;
-  padding-bottom: 0px!important;
+  padding-bottom: 0px !important;
   min-width: 500px;
 }
-*{
-  border-radius: 0px!important;
+* {
+  border-radius: 0px !important;
   font-size: 14px;
 }
 #search-input {
   width: 74% !important;
-  display: unset!important;
+  display: unset !important;
 }
 #search-btn {
   width: 25% !important;
 }
 .footer {
-  background-color:#f5f4f4;
+  background-color: #f5f4f4;
   padding: 10px 0px;
 }
 .footer ul {
-  margin: 0px!important;
+  margin: 0px !important;
   list-style: none;
 }
-.font-10{
-  font-size:10px !important;
+.font-10 {
+  font-size: 10px !important;
 }
 </style>

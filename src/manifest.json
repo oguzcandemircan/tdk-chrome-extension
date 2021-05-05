@@ -1,7 +1,7 @@
 {
   "name": "TDK Türkçe Sözlük",
   "description": "TDK Türkçe Sözlük Tarayıcı Eklentisi",
-  "version": null,
+  "version": "0.9.1",
   "manifest_version": 2,
   "icons": {
     "48": "icons/icon_48.png",
@@ -12,8 +12,8 @@
     "default_popup": "popup/popup.html"
   },
   "permissions": [
-    ""*://*.sozluk.gov.tr/*""
-  ]
+    "http://sozluk.gov.tr/gts?ara="
+  ],
   "background": {
     "scripts": [
       "background.js"
